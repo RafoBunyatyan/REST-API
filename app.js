@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const { v4 } = require('uuid')
 const app = express()
 
 const CONTACTS = [
@@ -8,7 +9,14 @@ const CONTACTS = [
 
 // GET
 app.get('/api/contacts', (req, res) => {
-	res.status(200).json(CONTACTS)
+	setTimeout(() => {
+		res.status(200).json(CONTACTS)
+	}, 1000);
+})
+
+// POST
+app.post('api/contacts', (req, res) => {
+
 })
 
 app.use(express.static(path.resolve(__dirname, 'client')))
