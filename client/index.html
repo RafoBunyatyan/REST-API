@@ -26,12 +26,15 @@
 				<input type="text" class="form-control" id="name" v-model="form.name" />
 			</div>
 			<div class="form-group mr-5">
-				<label for="value" class="mr-3">Имя</label>
+				<label for="value" class="mr-3">Значения</label>
 				<input type="text" class="form-control" id="value" v-model="form.value" />
 			</div>
-			<button class="btn btn-primary" type="submit" :disabled="canCreate">Саздать</button>
+			<button class="btn btn-primary" type="submit" :disabled="!canCreate">Саздать</button>
 		</form>
 
+		<div v-if="loading">
+			<loader />
+		</div>
 		<div v-if="contacts.length">
 			<div class="card mb-3" v-for="contact in contacts">
 				<div class="card-body">
