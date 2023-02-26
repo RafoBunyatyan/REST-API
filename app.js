@@ -29,6 +29,13 @@ app.delete('/api/contacts/:id', (req, res) => {
 	res.status(200).json({ message: 'Kontact bil udalen' })
 })
 
+// PUT
+app.put('/api/contacts/:id', (req, res) => {
+	const idx = CONTACTS.findIndex(c => c.id === req.params.id)
+	CONTACTS[idx] = req.body
+	res.json(CONTACTS[idx])
+})
+
 app.use(express.static(path.resolve(__dirname, 'client')))
 
 app.get('*', (req, res) => {
