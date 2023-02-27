@@ -1,2 +1,2 @@
 # REST-API
-REST API - что это? Создаем API с нуля на Express
+REST API - what is it? Building an API from scratch with Express
